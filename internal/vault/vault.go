@@ -267,6 +267,7 @@ func (s *Store) Create(key, value string) error {
 	// network error) occurred.
 	switch secret, err := s.client.Logical().Read(location); {
 	case err == nil && secret != nil:
+		s.logf("debug")
 		return kes.ErrKeyExists
 	case err != nil:
 		s.logf("vault: failed to create '%s': %v", location, err)
