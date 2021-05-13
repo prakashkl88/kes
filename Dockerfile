@@ -8,7 +8,7 @@ ENV GO111MODULE on
 
 RUN  \
      apk add --no-cache git && \
-     git clone https://github.com/minio/kes && cd kes && \
+     git clone https://github.com/prakashkl88/kes && cd kes && \
      GOPROXY=$(go env GOPROXY) go install -v -ldflags "-s -w" ./cmd/kes
 
 FROM alpine:latest as alpine
